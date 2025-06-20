@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Sistema de Reforestación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-$END$
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">🌿 Sistema de Registro de Árboles</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <a href="/arbol/mantenimiento" class="btn btn-success w-100 p-3 fs-5">
+                    🌳 Mantenimiento de Árboles
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="/responsable/mantenimiento" class="btn btn-primary w-100 p-3 fs-5">
+                    👤 Mantenimiento de Responsables
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="/especie/mantenimiento" class="btn btn-info w-100 p-3 fs-5">
+                    🌱 Mantenimiento de Especies
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

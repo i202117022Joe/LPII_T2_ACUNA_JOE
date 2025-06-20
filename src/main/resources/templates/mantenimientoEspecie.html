@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Mantenimiento de Especies</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+
+<h2>🌱 Registro de Especies de Árbol</h2>
+
+<form th:action="@{/especie/guardar}" method="post" th:object="${especie}" class="border p-4 rounded shadow-sm mb-4">
+  <div class="mb-3">
+    <label>Nombre común:</label>
+    <input type="text" th:field="*{nombreComun}" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Nombre científico:</label>
+    <input type="text" th:field="*{nombreCientifico}" class="form-control" required>
+  </div>
+  <div class="text-end">
+    <button type="submit" class="btn btn-success">Grabar</button>
+	<a href="/" class="btn btn-secondary">Volver al Inicio</a>
+  </div>
+</form>
+
+<h4>Lista de Especies</h4>
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+  <tr>
+    <th>ID</th>
+    <th>Nombre común</th>
+    <th>Nombre científico</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item : ${listaEspecies}">
+    <td th:text="${item.id}"></td>
+    <td th:text="${item.nombreComun}"></td>
+    <td th:text="${item.nombreCientifico}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

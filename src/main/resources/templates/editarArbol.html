@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Árbol</title>
+</head>
+<body>
+
+<h1>Editar Árbol</h1>
+
+<form th:action="@{/arbol/editar}" th:object="${arbol}" method="post">
+    <!-- Campo oculto con ID -->
+    <input type="hidden" th:field="*{id}"/>
+
+    <div>
+        <label>Responsable:</label>
+        <select th:field="*{responsable.id}">
+            <option value="" disabled>-- Selecciona --</option>
+            <option th:each="r : ${listaResponsables}"
+                    th:value="${r.id}"
+                    th:text="${r.nombreCompleto}"
+                    th:selected="${r.id} == ${arbol.responsable.id}">
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label>Especie:</label>
+        <select th:field="*{especie.id}">
+            <option value="" disabled>-- Selecciona --</option>
+            <option th:each="e : ${listaEspecies}"
+                    th:value="${e.id}"
+                    th:text="${e.nombreComun}"
+                    th:selected="${e.id} == ${arbol.especie.id}">
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label>Fecha Plantación:</label>
+        <input type="date" th:field="*{fechaPlantacion}"/>
+    </div>
+
+    <div>
+        <label>Coordenadas:</label>
+        <input type="text" th:field="*{coordenadas}" placeholder="Latitud,Longitud"/>
+    </div>
+
+    <div>
+        <button type="submit">Actualizar</button>
+        <a th:href="@{/arbol/mantenimiento}">← Volver</a>
+    </div>
+</form>
+
+</body>
+</html>
